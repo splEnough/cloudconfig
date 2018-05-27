@@ -1,28 +1,16 @@
 spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://119.29.201.35:3306/test?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: partysuiningdatakey
-    driver-class-name: org.gjt.mm.mysql.Driver
+  profiles:
+    active: 
+    - dev
+---
+spring:
+  profiles: dev
   application:
-    name: dept-provider
-mybatis:
-  mapper-locations: classpath:com/dao/**.xml
-  check-config-location: false
-  type-aliases-package: com.vo
+    name: test1
 server:
-  port: 8082
-
-eureka:
-  client:
-    fetch-registry: true
-    service-url:
-      defaultZone: http://admin:123@localhost:8078/eureka/ # 定义所要注册到的  eureka 服务器的地址（加上了授权验证）
-  instance:
-        instance-id: dept-provider:8082 # 当前微服务的显示id （status项）
-        prefer-ip-address: true # 访问的路径变为ip地址
-security:
-  user:
-    name: user
-    password: pass
+  port: 80
+--- 
+spring:
+  profiles: beta
+  application:
+    name: msg
