@@ -14,3 +14,8 @@ spring:
   profiles: beta
   application:
     name: msg
+---
+spring:
+  profiles: new
+  application:
+    name: newMsg:wq
