@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8302
+spring:
+  profiles: dev
+  application:
+    name: cloud-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123@localhost:8080/eureka/
+  instance:
+    hostname: cloud-client
+---
+server:
+  port: 8303
+spring:
+  profiles: beta
+  application:
+    name: cloud-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123@localhost:8080/eureka/
+  instance:
+    hostname: cloud-client    
